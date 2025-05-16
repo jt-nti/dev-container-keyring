@@ -1,0 +1,20 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+	"name": "Keyringtastic",
+
+	// More info: https://containers.dev/guide/dockerfile
+	"build": {
+        // Path is relative to the devcontainer.json file.
+        "dockerfile": "Dockerfile"
+    },
+
+	// More info: https://code.visualstudio.com/remote/advancedcontainers/start-processes
+	"overrideCommand": false,
+
+	// IPC_LOCK is required to run gnome-keyring-daemon.
+	// More info: https://stackoverflow.com/questions/75672304/why-does-gnome-keyring-daemon-fail-with-operation-not-permitted-in-a-dev-conta
+	"capAdd": [
+		"IPC_LOCK"
+	]
+}
